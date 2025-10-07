@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abhishi's 1st Birthday 🎂</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Pacifico&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff6b9d;
+      --secondary: #ffc2d4;
+      --accent: #a8e6cf;
+      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --card-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background Elements */
+    .bg-animation {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .floating-element {
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.3;
+    }
+
+    .star { font-size: 24px; color: #ffd700; }
+    .heart { font-size: 20px; color: #ff6b9d; }
+    .balloon-emoji { font-size: 30px; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Main Container */
+    .invitation-container {
+      position: relative;
+      z-index: 1;
+      padding: 50px 15px;
+    }
+
+    /* Card Styling */
+    .invitation-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Header Section */
+    .card-header-custom {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header-custom::before {
+      content: '🎈🎈🎈';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .birthday-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      color: white;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+      margin: 20px 0 10px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .subtitle-header {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 24px;
+      color: #ffd700;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Photo Section */
+    .photo-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: -80px auto 30px;
+      z-index: 10;
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 8px solid white;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      animation: pulse 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .photo-decoration {
+      position: absolute;
+      font-size: 35px;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+
+    .deco-1 { top: -10px; left: -10px; }
+    .deco-2 { top: -10px; right: -10px; animation-delay: 0.5s; }
+    .deco-3 { bottom: -10px; left: -10px; animation-delay: 1s; }
+    .deco-4 { bottom: -10px; right: -10px; animation-delay: 1.5s; }
+
+    /* Content Section */
+    .card-content {
+      padding: 30px 40px 40px;
+    }
+
+    .baby-name {
+      font-family: 'Pacifico', cursive;
+      font-size: 36px;
+      color: #764ba2;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    /* Info Cards */
+    .info-card {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .info-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .info-text {
+      font-size: 16px;
+      color: #555;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* RSVP Buttons */
+    .rsvp-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .btn-rsvp {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 15px 40px;
+      border-radius: 50px;
+      margin: 10px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: none;
+    }
+
+    .btn-primary-custom {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-secondary-custom {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+    }
+
+    .btn-rsvp:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Footer Note */
+    .footer-note {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .final-message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #764ba2;
+      font-weight: 600;
+    }
+
+    /* Confetti Animation */
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff6b9d;
+      animation: confetti-fall 4s linear infinite;
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .birthday-title { font-size: 36px; }
+      .subtitle-header { font-size: 18px; }
+      .baby-name { font-size: 28px; }
+      .card-content { padding: 20px; }
+      .btn-rsvp { padding: 12px 30px; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="floating-element star" style="top: 10%; left: 10%;">⭐</div>
+    <div class="floating-element heart" style="top: 20%; right: 15%; animation-delay: 1s;">❤️</div>
+    <div class="floating-element balloon-emoji" style="top: 60%; left: 5%; animation-delay: 2s;">🎈</div>
+    <div class="floating-element star" style="bottom: 20%; right: 10%; animation-delay: 1.5s;">✨</div>
+    <div class="floating-element heart" style="bottom: 30%; left: 20%; animation-delay: 0.5s;">💕</div>
+    <div class="floating-element balloon-emoji" style="top: 40%; right: 5%; animation-delay: 2.5s;">🎀</div>
+  </div>
+
+  <!-- Main Invitation Container -->
+  <div class="invitation-container">
+    <div class="invitation-card" data-aos="zoom-in" data-aos-duration="1000">
+      
+      <!-- Header -->
+      <div class="card-header-custom">
+        <h1 class="birthday-title">Join The Celebration!</h1>
+        <p class="subtitle-header">A First Birthday to Remember</p>
+      </div>
+
+      <!-- Content -->
+      <div class="card-content">
+        
+        <!-- Photo -->
+        <div class="photo-container" data-aos="flip-up" data-aos-delay="200">
+          <div class="photo-frame">
+            <img src="WhatsApp Image 2025-10-07 at 16.05.12_deec8737.jpg" alt="Abhishi's adorable photo">
+          </div>
+          <span class="photo-decoration deco-1">🎈</span>
+          <span class="photo-decoration deco-2">🎂</span>
+          <span class="photo-decoration deco-3">⭐</span>
+          <span class="photo-decoration deco-4">🎁</span>
+        </div>
+
+        <!-- Baby Name -->
+        <h2 class="baby-name" data-aos="fade-up" data-aos-delay="300">Abhishi</h2>
+        <p class="tagline" data-aos="fade-up" data-aos-delay="400">Our little sunshine is turning ONE! ☀️</p>
+
+        <!-- Event Details -->
+        <div class="row mt-4">
+          <div class="col-md-6 mb-3" data-aos="fade-right" data-aos-delay="500">
+            <div class="info-card text-center">
+              <span class="info-icon">📅</span>
+              <h3 class="info-title">When</h3>
+              <p class="info-text">11 October 2025<br>6:00 PM onwards</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3" data-aos="fade-left" data-aos-delay="600">
+            <div class="info-card text-center">
+              <span class="info-icon">📍</span>
+              <h3 class="info-title">Where</h3>
+              <p class="info-text">Nasej, Bihar<br>(Directions available on request)</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3" data-aos="fade-right" data-aos-delay="700">
+            <div class="info-card text-center">
+              <span class="info-icon">👗</span>
+              <h3 class="info-title">Dress Code</h3>
+              <p class="info-text">Pastel & Comfy<br>Come as you are! 💖</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3" data-aos="fade-left" data-aos-delay="800">
+            <div class="info-card text-center">
+              <span class="info-icon">🎁</span>
+              <h3 class="info-title">Gifts</h3>
+              <p class="info-text">Your presence is the best gift!<br>But surprises are welcome 😊</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RSVP Section -->
+        <div class="rsvp-section" data-aos="zoom-in" data-aos-delay="900">
+          <h3 style="font-family: 'Fredoka', sans-serif; color: #764ba2; margin-bottom: 20px;">
+            Can You Make It? Let Us Know!
+          </h3>
+          <a href="tel:+918298467772" class="btn-rsvp btn-primary-custom">
+            <i class="fas fa-phone-alt"></i> Call to RSVP
+          </a>
+          <a href="mailto:example@mail.com?subject=RSVP%20for%20Abhishi%20Birthday&body=Hi!%20We%20would%20love%20to%20attend%20Abhishi's%20birthday!" class="btn-rsvp btn-secondary-custom">
+            <i class="fas fa-envelope"></i> Email RSVP
+          </a>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="footer-note" data-aos="fade-up" data-aos-delay="1000">
+          <p><strong>📸 Please arrive 10 minutes early for photos!</strong></p>
+          <p>Need directions? Just reply to the RSVP and we'll send you the exact location pin.</p>
+          <p class="final-message">
+            We can't wait to celebrate with you — cake, music, giggles & endless joy await! 🎉💕
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Create dynamic confetti
+    function createConfetti() {
+      const colors = ['#ff6b9d', '#ffc2d4', '#a8e6cf', '#ffd700', '#667eea', '#764ba2'];
+      const container = document.querySelector('.bg-animation');
+      
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 4 + 's';
+        confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        container.appendChild(confetti);
+      }
+    }
+
+    // Add hover effects to info cards
+    document.querySelectorAll('.info-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) rotate(2deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) rotate(0deg)';
+      });
+    });
+
+    // Initialize confetti
+    createConfetti();
+
+    // Add click effect to buttons
+    document.querySelectorAll('.btn-rsvp').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 100);
+      });
+    });
+  </script>
+</body>
+</html>
